@@ -7,5 +7,5 @@ import javax.ws.rs.core.Application;
  * Configures a JAX-RS endpoint.
  */
 @ApplicationPath("api")
-public class JAXRSConfiguration extends Application {
+public class FeatureApplication extends Application {
 }
