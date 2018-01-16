@@ -8,6 +8,8 @@ stages:
   - build     # compile, unit-tests, integration-tests, package
   - analyze   # run sonarqube analysis
   - push      # build docker image and push image to artifactory
+  - cleanup   # delete existing ressources from openshift namespace
+  - deploy    # push to openshift
 
 maven-build:
   stage: build
@@ -44,3 +46,43 @@ docker-build:
     - docker login -u "$DOCKER_REGISTRY_USER" -p "$DOCKER_REGISTRY_PASS" $DOCKER_REGISTRY_URL
     - docker build --pull -t "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_REPO/$DOCKER_IMAGE_NAME" .
     - docker push "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_REPO/$DOCKER_IMAGE_NAME"
+    
+################################################################################
+# CLEANUP
+
+cleanup:
+  stage: cleanup
+  image: $DOCKER_REGISTRY_URL/qaware-internal-docker/oc:latest
+  variables:
+    GIT_STRATEGY: none
+  dependencies: []
+  script:
+    - oc login $OPENSHIFT_URL -u $OPENSHIFT_USER -p $OPENSHIFT_PASS
+    - oc project $OPENSHIFT_NAMESPACE 2> /dev/null || oc new-project $OPENSHIFT_NAMESPACE
+    - oc delete all --all
+    - until oc get pods 2>&1 | grep -c "No resources found."; do sleep 1; done
+
+################################################################################
+# DEPLOY
+
+cap-deploy:
+  stage: deploy
+  image: $DOCKER_REGISTRY_URL/qaware-internal-docker/oc:latest
+  environment:
+    name: $CI_COMMIT_REF_NAME
+    url: https://lombok-service.cap.qaware.de
+  variables:
+    GIT_STRATEGY: none
+  dependencies: []
+  script:
+    - oc login $OPENSHIFT_URL -u $OPENSHIFT_USER -p $OPENSHIFT_PASS
+    - oc project $OPENSHIFT_NAMESPACE 2> /dev/null || oc new-project $OPENSHIFT_NAMESPACE
+    - >
+      oc new-app
+      --docker-image=$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_REPO/$DOCKER_IMAGE_NAME
+      --name=lombok-service
+      -e GREETING="greetings from OpenShift Deployment!"
+    - until oc get pods 2>&1 | grep lombok-service | grep -v deploy | grep 1/1 | grep Running; do sleep 1; done
+    - until oc create route edge --service=lombok-service --insecure-policy=Redirect --hostname=lombok-service.cap.qaware.de; do sleep 1; done
+  only:
+    - master
