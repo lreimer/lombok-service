@@ -11,16 +11,33 @@ public class Feature {
 
     private String name;
     private String description;
-    private boolean stable = true;
+    private boolean stable;
 
+    /**
+     * Package private default constructor required by CDI.
+     */
     Feature() {
     }
 
+    /**
+     * Initialize a stable Feature with given attributes.
+     *
+     * @param name        the feature name
+     * @param description the description
+     */
     public Feature(String name, String description) {
         this.name = name;
         this.description = description;
+        this.stable = true;
     }
 
+    /**
+     * Initialize a Feature with attributes.
+     *
+     * @param name        the feature name
+     * @param description the description
+     * @param stable      is feature stable
+     */
     public Feature(String name, String description, boolean stable) {
         this.name = name;
         this.description = description;
@@ -53,8 +70,12 @@ public class Feature {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         Feature feature = (Feature) o;
         return stable == feature.stable &&

@@ -10,6 +10,9 @@ import javax.ws.rs.core.Response;
 import java.util.Collection;
 import java.util.logging.Logger;
 
+/**
+ * The REST resource implementation for Lombok features.
+ */
 @RequestScoped
 @Path("features")
 public class FeatureResource {
@@ -19,16 +22,26 @@ public class FeatureResource {
     private FeatureRepository repository;
 
     /**
-     * Default constructor.
+     * Package private default constructor required by CDI.
      */
     FeatureResource() {
     }
 
+    /**
+     * Initialize required dependencies via CDI with given attributes.
+     *
+     * @param repository the feature repository
+     */
     @Inject
     public FeatureResource(final FeatureRepository repository) {
         this.repository = repository;
     }
 
+    /**
+     * Get the list of features as JSON.
+     *
+     * @return list if features with status 200
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getFeatures() {

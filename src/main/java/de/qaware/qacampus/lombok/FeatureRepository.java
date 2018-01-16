@@ -3,10 +3,14 @@ package de.qaware.qacampus.lombok;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.logging.Logger;
 
+/**
+ * An in-memory repository implementation for Lombok features.
+ */
 @ApplicationScoped
 public class FeatureRepository {
 
@@ -15,11 +19,14 @@ public class FeatureRepository {
     private final Set<Feature> features = new LinkedHashSet<>();
 
     /**
-     * Default constructor
+     * Package private default constructor.
      */
     FeatureRepository() {
     }
 
+    /**
+     * Initialize the in-memory data for this repository.
+     */
     @PostConstruct
     void initialize() {
         features.add(new Feature("val", "Finally! Hassle-free final local variables."));
@@ -41,8 +48,13 @@ public class FeatureRepository {
         features.add(new Feature("@Log", "Captain's Log, stardate 24435.7: \"What was that line again?\""));
     }
 
+    /**
+     * Finds and returns all Lombok features.
+     *
+     * @return the unmodifiable view on features
+     */
     public Collection<Feature> findAll() {
-        LOGGER.info("Finding all features.");
-        return features;
+        LOGGER.info("Finding all Lombok features.");
+        return Collections.unmodifiableCollection(features);
     }
 }
