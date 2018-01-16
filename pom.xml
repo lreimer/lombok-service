@@ -53,7 +53,7 @@
             <version>1.0.0</version>
             <scope>test</scope>
         </dependency>
-
+        <!-- required by the JUnit tests for JAX-RS resources -->
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-common</artifactId>
@@ -74,6 +74,7 @@
                     <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
+            <!-- configure surefire to use JUnit 5 provider -->
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19.1</version>
