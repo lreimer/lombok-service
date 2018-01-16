@@ -81,7 +81,6 @@ cap-deploy:
       oc new-app
       --docker-image=$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_REPO/$DOCKER_IMAGE_NAME
       --name=lombok-service
-      -e GREETING="greetings from OpenShift Deployment!"
     - until oc get pods 2>&1 | grep lombok-service | grep -v deploy | grep 1/1 | grep Running; do sleep 1; done
     - until oc create route edge --service=lombok-service --insecure-policy=Redirect --hostname=lombok-service.cap.qaware.de; do sleep 1; done
   only:
