@@ -25,5 +25,22 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
-    
+
+    <scm>
+        <connection>scm:git:https://gitlab.qaware.de/qaware/qacampus/lombok-service.git</connection>
+        <url>https://gitlab.qaware.de/qaware/qacampus/lombok-service</url>
+        <tag>master</tag>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>lombok-service-releases</id>
+            <url>https://artifactory.qaware.de/artifactory/qaware-qacampus-maven-release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>lombok-service-snapshots</id>
+            <url>https://artifactory.qaware.de/artifactory/qaware-qacampus-maven-snapshot/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 </project>
