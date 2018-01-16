@@ -26,9 +26,7 @@ public class Feature {
      * @param description the description
      */
     public Feature(String name, String description) {
-        this.name = name;
-        this.description = description;
-        this.stable = true;
+        this(name, description, true);
     }
 
     /**

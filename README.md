@@ -16,7 +16,7 @@ $ docker run -it -p 8080:8080 lombok-service:1.0
 
 ## Maintainer
 
-Mario-Leander Reimer (@reimer), <mario-leander.reimer@qaware.de>
+Mario-Leander Reimer (@mario-leander.reimer), <mario-leander.reimer@qaware.de>
 
 ## License
 
