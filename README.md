@@ -1,3 +1,5 @@
+[![pipeline status](https://gitlab.qaware.de/qaware/qacampus/lombok-service/badges/master/pipeline.svg)](https://gitlab.qaware.de/qaware/qacampus/lombok-service/commits/master)
+
 # Reducing Boilerplate Code with Project Lombok
 
 This repository demonstrates the usage of Project Lombok to reduce common boilerplate code
