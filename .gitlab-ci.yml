@@ -7,6 +7,7 @@ variables:
 stages:
   - build     # compile, unit-tests, integration-tests, package
   - analyze   # run sonarqube analysis
+  - push      # build docker image and push image to artifactory
 
 maven-build:
   stage: build
@@ -32,3 +33,14 @@ sonarqube:
   script:
     - if [ "$CI_COMMIT_REF_NAME" == "master" ]; then SONAR_BRANCH_NAME=""; else SONAR_BRANCH_NAME="-Dsonar.branch.name=$CI_COMMIT_REF_NAME"; fi
     - "./mvnw $MAVEN_CLI_OPTS $SONAR_MAVEN_GOAL $SONAR_BRANCH_NAME -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_TOKEN"
+
+################################################################################
+# PUSH
+
+docker-build:
+  stage: push
+  image: docker:latest
+  script:
+    - docker login -u "$DOCKER_REGISTRY_USER" -p "$DOCKER_REGISTRY_PASS" $DOCKER_REGISTRY_URL
+    - docker build --pull -t "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_REPO/$DOCKER_IMAGE_NAME" .
+    - docker push "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_REPO/$DOCKER_IMAGE_NAME"
