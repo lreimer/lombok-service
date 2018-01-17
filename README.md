@@ -50,6 +50,29 @@ Processing for the project and install the Lombok plugin.
 ![IntelliJ Lombok Config](intellij-lombok.png)
 
 
+### Step 2: Reducing POJO boilerplate code with Lombok
+
+There is a lot of boilerplate code in the `Feature` POJO, so let's refactor unsing Lombok.
+
+#### @ToString
+
+Instead of writing
+```java
+@Override
+public String toString() {
+    return "Feature{" + "name='" + name + '\'' +
+            ", description='" + description + '\'' +
+            ", stable=" + stable + '}';
+}
+```
+
+add 
+```java 
+@ToString(doNotUseGetters = true)
+``` 
+to your class. Done.
+
+
 ## Maintainer
 
 Mario-Leander Reimer (@mario-leander.reimer), <mario-leander.reimer@qaware.de>
