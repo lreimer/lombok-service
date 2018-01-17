@@ -174,6 +174,37 @@ add ```@Builder``` and ```@Builder.Default``` to your class and fields and you c
 Feature f = Feature.builder().name(name).description(description).stable(stable).build();
 ```
 
+### Step 3: Reducing CDI boilerplate code with Lombok
+
+If you are using a DI framework such as CDI or Spring in combination with constructor injection
+you also have to write some stupid boilerplate code: the constructors.
+
+But instead of writing
+```java
+/**
+ * Package private default constructor required by CDI.
+ */
+FeatureResource() {
+}
+
+/**
+ * Initialize required dependencies via CDI with given attributes.
+ *
+ * @param repository the feature repository
+ */
+@Inject
+public FeatureResource(final FeatureRepository repository) {
+    this.repository = repository;
+}
+```
+
+simply add   
+```java 
+@NoArgsConstructor(access = AccessLevel.PACKAGE)
+@AllArgsConstructor(onConstructor = @__({@Inject}))
+``` 
+to your class. Done.
+
 ## Maintainer
 
 Mario-Leander Reimer (@mario-leander.reimer), <mario-leander.reimer@qaware.de>

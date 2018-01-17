@@ -1,5 +1,9 @@
 package de.qaware.qacampus.lombok;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -15,27 +19,13 @@ import java.util.logging.Logger;
  */
 @RequestScoped
 @Path("features")
+@NoArgsConstructor(access = AccessLevel.PACKAGE)
+@AllArgsConstructor(onConstructor = @__({@Inject}))
 public class FeatureResource {
 
     private static final Logger LOGGER = Logger.getLogger(FeatureResource.class.getName());
 
     private FeatureRepository repository;
-
-    /**
-     * Package private default constructor required by CDI.
-     */
-    FeatureResource() {
-    }
-
-    /**
-     * Initialize required dependencies via CDI with given attributes.
-     *
-     * @param repository the feature repository
-     */
-    @Inject
-    public FeatureResource(final FeatureRepository repository) {
-        this.repository = repository;
-    }
 
     /**
      * Get the list of features as JSON.

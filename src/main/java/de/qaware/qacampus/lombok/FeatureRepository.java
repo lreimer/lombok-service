@@ -1,5 +1,8 @@
 package de.qaware.qacampus.lombok;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import java.util.Collection;
@@ -12,17 +15,12 @@ import java.util.logging.Logger;
  * An in-memory repository implementation for Lombok features.
  */
 @ApplicationScoped
+@NoArgsConstructor(access = AccessLevel.PACKAGE)
 public class FeatureRepository {
 
     private static final Logger LOGGER = Logger.getLogger(FeatureRepository.class.getName());
 
     private final Set<Feature> features = new LinkedHashSet<>();
-
-    /**
-     * Package private default constructor.
-     */
-    FeatureRepository() {
-    }
 
     /**
      * Initialize the in-memory data for this repository.
