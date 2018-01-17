@@ -43,11 +43,11 @@ dependencies {
 When you use IntelliJ as your IDE, please make sure you have activated the Annotation
 Processing for the project and install the Lombok plugin.
 
-![IntelliJ Annotation Processing](intellij-apt.png | width=300)
+![IntelliJ Annotation Processing](intellij-apt.png)
 
-![IntelliJ Plugins](intellij-plugins.png | width=300)
+![IntelliJ Plugins](intellij-plugins.png)
 
-![IntelliJ Lombok Config](intellij-lombok.png | width=300)
+![IntelliJ Lombok Config](intellij-lombok.png)
 
 
 ## Maintainer
