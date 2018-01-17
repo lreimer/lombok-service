@@ -1,9 +1,6 @@
 package de.qaware.qacampus.lombok;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.json.bind.annotation.JsonbPropertyOrder;
 
@@ -14,10 +11,12 @@ import javax.json.bind.annotation.JsonbPropertyOrder;
 @Data
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
 @AllArgsConstructor
+@Builder
 public class Feature {
 
     private String name;
     private String description;
+    @Builder.Default
     private boolean stable = true;
 
 }

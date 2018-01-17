@@ -156,6 +156,24 @@ And instead of writing all the previous annotations
 
 add ```@Data``` to your class. Done.
 
+#### @Builder
+
+And you can add even more syntactic sugar such as a builder implementation
+to construct instances using a fluent API.
+
+So instead of writing
+```java
+Feature f = new Feature();
+f.setName(name);
+f.setDescription(description);
+f.setStable(stable);
+```
+
+add ```@Builder``` and ```@Builder.Default``` to your class and fields and you can now write
+```java
+Feature f = Feature.builder().name(name).description(description).stable(stable).build();
+```
+
 ## Maintainer
 
 Mario-Leander Reimer (@mario-leander.reimer), <mario-leander.reimer@qaware.de>

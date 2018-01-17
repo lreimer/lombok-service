@@ -14,8 +14,8 @@ class FeatureTest {
     @Test
     @DisplayName("Check hashCode() / equals() contract")
     void hashCodeEquals() {
-        Feature f1 = createFeature("name", "description", true);
-        Feature f2 = createFeature("name", "description");
+        Feature f1 = Feature.builder().name("name").description("description").stable(true).build();
+        Feature f2 = Feature.builder().name("name").description("description").build();
 
         assertEquals(f1, f1);
         assertEquals(f1, f2);
@@ -29,16 +29,4 @@ class FeatureTest {
         assertEquals(f1.toString(), f2.toString());
     }
 
-    private Feature createFeature(String name, String description, boolean stable) {
-        Feature f = new Feature();
-        f.setName(name);
-        f.setDescription(description);
-        f.setStable(stable);
-
-        return f;
-    }
-
-    private Feature createFeature(String name, String description) {
-        return createFeature(name, description, true);
-    }
 }
