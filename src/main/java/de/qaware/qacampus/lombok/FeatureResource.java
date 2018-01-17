@@ -3,11 +3,7 @@ package de.qaware.qacampus.lombok;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import lombok.extern.apachecommons.CommonsLog;
 import lombok.extern.java.Log;
-import lombok.extern.jbosslog.JBossLog;
-import lombok.extern.log4j.Log4j;
-import lombok.extern.slf4j.Slf4j;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -17,7 +13,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Collection;
-import java.util.logging.Logger;
 
 /**
  * The REST resource implementation for Lombok features.
