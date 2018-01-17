@@ -1,15 +1,16 @@
 package de.qaware.qacampus.lombok;
 
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.json.bind.annotation.JsonbPropertyOrder;
-import java.util.Objects;
 
 /**
  * Lombok Feature POJO.
  */
 @JsonbPropertyOrder({"name", "description", "stable"})
 @ToString(doNotUseGetters = true)
+@EqualsAndHashCode(doNotUseGetters = true)
 public class Feature {
 
     private String name;
@@ -67,26 +68,6 @@ public class Feature {
 
     public void setStable(boolean stable) {
         this.stable = stable;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        Feature feature = (Feature) o;
-        return stable == feature.stable &&
-                Objects.equals(name, feature.name) &&
-                Objects.equals(description, feature.description);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, description, stable);
     }
 
 }

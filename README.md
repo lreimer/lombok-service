@@ -72,6 +72,36 @@ add
 ``` 
 to your class. Done.
 
+#### @EqualsAndHashCode
+
+Instead of writing
+```java
+@Override
+public boolean equals(Object o) {
+    if (this == o) {
+        return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+        return false;
+    }
+
+    Feature feature = (Feature) o;
+    return stable == feature.stable &&
+            Objects.equals(name, feature.name) &&
+            Objects.equals(description, feature.description);
+}
+
+@Override
+public int hashCode() {
+    return Objects.hash(name, description, stable);
+}
+```
+
+add 
+```java 
+@EqualsAndHashCode(doNotUseGetters = true)
+``` 
+to your class. Done.
 
 ## Maintainer
 
