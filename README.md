@@ -220,6 +220,9 @@ there are `@Slf4j`, `@Log4j`, `@Log4j2`, `@CommonsLog` and `@JBossLog` available
 The default field name is `logger`, so you may want to customze it. Simply create a `lombok.config` 
 file and add the line `lombok.log.fieldName = LOGGER` to it.
  
+### Result
+
+![Lines of code (LOC)](lines-of-code.png)
 
 ## Maintainer
 
