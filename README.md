@@ -103,6 +103,16 @@ add
 ``` 
 to your class. Done.
 
+#### @Getter and @Setter
+
+And instead of writing those pescy getter and setter methods for your fields add
+```java
+@Getter
+@Setter
+```
+to your class. Done.
+
+
 ## Maintainer
 
 Mario-Leander Reimer (@mario-leander.reimer), <mario-leander.reimer@qaware.de>

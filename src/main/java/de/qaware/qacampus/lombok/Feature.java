@@ -1,6 +1,8 @@
 package de.qaware.qacampus.lombok;
 
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import javax.json.bind.annotation.JsonbPropertyOrder;
@@ -11,6 +13,8 @@ import javax.json.bind.annotation.JsonbPropertyOrder;
 @JsonbPropertyOrder({"name", "description", "stable"})
 @ToString(doNotUseGetters = true)
 @EqualsAndHashCode(doNotUseGetters = true)
+@Getter
+@Setter
 public class Feature {
 
     private String name;
@@ -43,30 +47,6 @@ public class Feature {
     public Feature(String name, String description, boolean stable) {
         this.name = name;
         this.description = description;
-        this.stable = stable;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public boolean isStable() {
-        return stable;
-    }
-
-    public void setStable(boolean stable) {
         this.stable = stable;
     }
 
