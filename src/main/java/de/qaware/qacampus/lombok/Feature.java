@@ -1,6 +1,9 @@
 package de.qaware.qacampus.lombok;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.json.bind.annotation.JsonbPropertyOrder;
 
@@ -8,10 +11,7 @@ import javax.json.bind.annotation.JsonbPropertyOrder;
  * Lombok Feature POJO.
  */
 @JsonbPropertyOrder({"name", "description", "stable"})
-@ToString(doNotUseGetters = true)
-@EqualsAndHashCode(doNotUseGetters = true)
-@Getter
-@Setter
+@Data
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
 @AllArgsConstructor
 public class Feature {

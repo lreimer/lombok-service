@@ -143,6 +143,19 @@ add
 ``` 
 to your class. Done.
 
+#### @Data
+
+And instead of writing all the previous annotations
+```java
+@Getter
+@Setter
+@RequiredArgsConstructor
+@ToString
+@EqualsAndHashCode
+``` 
+
+add ```@Data``` to your class. Done.
+
 ## Maintainer
 
 Mario-Leander Reimer (@mario-leander.reimer), <mario-leander.reimer@qaware.de>
