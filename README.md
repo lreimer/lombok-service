@@ -14,6 +14,7 @@ $ docker build -t lombok-service:1.0 .
 $ docker run -it -p 8080:8080 lombok-service:1.0 
 ```
 
+
 ## Using Project Lombok
 
 ### Step 1: Add the Lombok dependency
@@ -205,9 +206,25 @@ simply add
 ``` 
 to your class. Done.
 
+### Step 4: Reducing LOGGER boilerplate code with Lombok
+
+In almost every class you have the same good ol' LOGGER initialization boilerplate
+code, such as 
+```java
+private static final Logger LOGGER = Logger.getLogger(FeatureResource.class.getName());
+```
+
+Now with Lombok, you simply have to add `@Log` instead. In case you are not using JULI,
+there are `@Slf4j`, `@Log4j`, `@Log4j2`, `@CommonsLog` and `@JBossLog` available.
+
+The default field name is `logger`, so you may want to customze it. Simply create a `lombok.config` 
+file and add the line `lombok.log.fieldName = LOGGER` to it.
+ 
+
 ## Maintainer
 
 Mario-Leander Reimer (@mario-leander.reimer), <mario-leander.reimer@qaware.de>
+
 
 ## License
 

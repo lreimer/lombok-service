@@ -2,6 +2,7 @@ package de.qaware.qacampus.lombok;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.extern.java.Log;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
@@ -16,9 +17,8 @@ import java.util.logging.Logger;
  */
 @ApplicationScoped
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
+@Log
 public class FeatureRepository {
-
-    private static final Logger LOGGER = Logger.getLogger(FeatureRepository.class.getName());
 
     private final Set<Feature> features = new LinkedHashSet<>();
 

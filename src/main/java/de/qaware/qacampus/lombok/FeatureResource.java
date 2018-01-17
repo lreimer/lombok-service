@@ -3,6 +3,11 @@ package de.qaware.qacampus.lombok;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.extern.apachecommons.CommonsLog;
+import lombok.extern.java.Log;
+import lombok.extern.jbosslog.JBossLog;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -21,9 +26,8 @@ import java.util.logging.Logger;
 @Path("features")
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
 @AllArgsConstructor(onConstructor = @__({@Inject}))
+@Log
 public class FeatureResource {
-
-    private static final Logger LOGGER = Logger.getLogger(FeatureResource.class.getName());
 
     private FeatureRepository repository;
 
