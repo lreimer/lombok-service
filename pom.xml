@@ -7,12 +7,14 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
+    <!-- Gitlab SCM info -->
     <scm>
         <connection>scm:git:https://gitlab.qaware.de/qaware/qacampus/lombok-service.git</connection>
         <url>https://gitlab.qaware.de/qaware/qacampus/lombok-service</url>
         <tag>master</tag>
     </scm>
 
+    <!-- use QAcampus repositories for release and snapshots -->
     <distributionManagement>
         <repository>
             <id>lombok-service-releases</id>
@@ -24,6 +26,7 @@
         </snapshotRepository>
     </distributionManagement>
 
+    <!-- build configuration properties -->
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -33,6 +36,7 @@
     </properties>
 
     <dependencies>
+        <!-- the only really required dependency -->
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
@@ -66,6 +70,7 @@
         <finalName>lombok-service</finalName>
 
         <plugins>
+            <!-- configure to use 1.8 as source and target -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.7.0</version>
