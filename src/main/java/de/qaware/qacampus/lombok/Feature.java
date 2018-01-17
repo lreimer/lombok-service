@@ -1,9 +1,6 @@
 package de.qaware.qacampus.lombok;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.json.bind.annotation.JsonbPropertyOrder;
 
@@ -15,39 +12,12 @@ import javax.json.bind.annotation.JsonbPropertyOrder;
 @EqualsAndHashCode(doNotUseGetters = true)
 @Getter
 @Setter
+@NoArgsConstructor(access = AccessLevel.PACKAGE)
+@AllArgsConstructor
 public class Feature {
 
     private String name;
     private String description;
-    private boolean stable;
-
-    /**
-     * Package private default constructor required by CDI.
-     */
-    Feature() {
-    }
-
-    /**
-     * Initialize a stable Feature with given attributes.
-     *
-     * @param name        the feature name
-     * @param description the description
-     */
-    public Feature(String name, String description) {
-        this(name, description, true);
-    }
-
-    /**
-     * Initialize a Feature with attributes.
-     *
-     * @param name        the feature name
-     * @param description the description
-     * @param stable      is feature stable
-     */
-    public Feature(String name, String description, boolean stable) {
-        this.name = name;
-        this.description = description;
-        this.stable = stable;
-    }
+    private boolean stable = true;
 
 }

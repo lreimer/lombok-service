@@ -39,6 +39,6 @@ class FeatureTest {
     }
 
     private Feature createFeature(String name, String description) {
-        return new Feature(name, description);
+        return createFeature(name, description, true);
     }
 }

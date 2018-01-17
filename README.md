@@ -112,6 +112,36 @@ And instead of writing those pescy getter and setter methods for your fields add
 ```
 to your class. Done.
 
+#### @NoArgsConstructor and @AllArgsConstructor
+
+Instead of writing
+```java
+/**
+ * Package private default constructor.
+ */
+Feature() {
+}
+
+/**
+ * Initialize a Feature with attributes.
+ *
+ * @param name        the feature name
+ * @param description the description
+ * @param stable      is feature stable
+ */
+public Feature(String name, String description, boolean stable) {
+    this.name = name;
+    this.description = description;
+    this.stable = stable;
+}
+```
+
+add 
+```java 
+@NoArgsConstructor(access = AccessLevel.PACKAGE)
+@AllArgsConstructor
+``` 
+to your class. Done.
 
 ## Maintainer
 
