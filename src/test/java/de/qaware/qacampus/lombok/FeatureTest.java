@@ -1,6 +1,7 @@
 package de.qaware.qacampus.lombok;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -29,4 +30,18 @@ class FeatureTest {
         assertEquals(f1.toString(), f2.toString());
     }
 
+    @Nested
+    @DisplayName("using FeatureBuilder")
+    class FeatureBuilderTest {
+
+        @Test
+        @DisplayName("Building a feature")
+        void build() {
+            Feature feature = Feature.builder().name("junit").description("hello").stable(false).build();
+
+            assertEquals("junit", feature.getName());
+            assertEquals("hello", feature.getDescription());
+            assertFalse(feature.isStable());
+        }
+    }
 }
