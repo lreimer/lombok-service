@@ -1,6 +1,7 @@
 package de.qaware.qacampus.lombok;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.core.Response;
@@ -24,6 +25,7 @@ class FeatureResourceTest {
     }
 
     @Test
+    @DisplayName("Get all features via REST")
     void getFeatures() {
         Response response = resource.getFeatures();
 
