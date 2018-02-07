@@ -11,7 +11,7 @@ of an ordinary Java EE 8 microservice application.
 $ ./mvnw clean package
 
 $ docker build -t lombok-service:1.0 .
-$ docker run -it -p 8080:8080 lombok-service:1.0 
+$ docker run -it -p 8080:8080 lombok-service:1.0
 ```
 
 
@@ -67,10 +67,10 @@ public String toString() {
 }
 ```
 
-add 
-```java 
+add
+```java
 @ToString(doNotUseGetters = true)
-``` 
+```
 to your class. Done.
 
 #### @EqualsAndHashCode
@@ -98,10 +98,10 @@ public int hashCode() {
 }
 ```
 
-add 
-```java 
+add
+```java
 @EqualsAndHashCode(doNotUseGetters = true)
-``` 
+```
 to your class. Done.
 
 #### @Getter and @Setter
@@ -137,11 +137,11 @@ public Feature(String name, String description, boolean stable) {
 }
 ```
 
-add 
-```java 
+add
+```java
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
 @AllArgsConstructor
-``` 
+```
 to your class. Done.
 
 #### @Data
@@ -153,7 +153,7 @@ And instead of writing all the previous annotations
 @RequiredArgsConstructor
 @ToString
 @EqualsAndHashCode
-``` 
+```
 
 add ```@Data``` to your class. Done.
 
@@ -200,16 +200,16 @@ public FeatureResource(final FeatureRepository repository) {
 ```
 
 simply add   
-```java 
+```java
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
 @AllArgsConstructor(onConstructor = @__({@Inject}))
-``` 
+```
 to your class. Done.
 
 ### Step 4: Reducing LOGGER boilerplate code with Lombok
 
 In almost every class you have the same good ol' LOGGER initialization boilerplate
-code, such as 
+code, such as
 ```java
 private static final Logger LOGGER = Logger.getLogger(FeatureResource.class.getName());
 ```
@@ -217,9 +217,9 @@ private static final Logger LOGGER = Logger.getLogger(FeatureResource.class.getN
 Now with Lombok, you simply have to add `@Log` instead. In case you are not using JULI,
 there are `@Slf4j`, `@Log4j`, `@Log4j2`, `@CommonsLog` and `@JBossLog` available.
 
-The default field name is `logger`, so you may want to customze it. Simply create a `lombok.config` 
+The default field name is `logger`, so you may want to customze it. Simply create a `lombok.config`
 file and add the line `lombok.log.fieldName = LOGGER` to it.
- 
+
 ### Result
 
 ![Lines of code (LOC)](lines-of-code.png)
@@ -231,5 +231,5 @@ Mario-Leander Reimer (@mario-leander.reimer), <mario-leander.reimer@qaware.de>
 
 ## License
 
-This software is provided under the MIT open source license, read the `LICENSE.txt` 
+This software is provided under the MIT open source license, read the `LICENSE`
 file for details.
