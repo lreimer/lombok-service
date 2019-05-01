@@ -4,25 +4,14 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.qaware.qacampus</groupId>
     <artifactId>lombok-service</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>war</packaging>
 
     <scm>
-        <connection>scm:git:https://gitlab.qaware.de/qaware/qacampus/lombok-service.git</connection>
-        <url>https://gitlab.qaware.de/qaware/qacampus/lombok-service</url>
+        <connection>scm:git:https://github.com/lreimer/lombok-service.git</connection>
+        <url>https://github.com/lreimer/lombok-service</url>
         <tag>master</tag>
     </scm>
-
-    <distributionManagement>
-        <repository>
-            <id>lombok-service-releases</id>
-            <url>https://artifactory.qaware.de/artifactory/qaware-qacampus-maven-release/</url>
-        </repository>
-        <snapshotRepository>
-            <id>lombok-service-snapshots</id>
-            <url>https://artifactory.qaware.de/artifactory/qaware-qacampus-maven-snapshot/</url>
-        </snapshotRepository>
-    </distributionManagement>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -39,8 +28,6 @@
             <version>8.0</version>
             <scope>provided</scope>
         </dependency>
-
-
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>

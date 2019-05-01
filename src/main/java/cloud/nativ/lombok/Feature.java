@@ -1,4 +1,4 @@
-package de.qaware.qacampus.lombok;
+package cloud.nativ.lombok;
 
 import javax.json.bind.annotation.JsonbPropertyOrder;
 import java.util.Objects;

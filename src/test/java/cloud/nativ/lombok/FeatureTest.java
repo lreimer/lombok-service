@@ -1,4 +1,4 @@
-package de.qaware.qacampus.lombok;
+package cloud.nativ.lombok;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

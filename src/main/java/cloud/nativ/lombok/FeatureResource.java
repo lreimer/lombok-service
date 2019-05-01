@@ -1,4 +1,4 @@
-package de.qaware.qacampus.lombok;
+package cloud.nativ.lombok;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

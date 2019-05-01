@@ -1,5 +1,3 @@
-[![pipeline status](https://gitlab.qaware.de/qaware/qacampus/lombok-service/badges/master/pipeline.svg)](https://gitlab.qaware.de/qaware/qacampus/lombok-service/commits/master)
-
 # Reducing Boilerplate Code with Project Lombok
 
 This repository demonstrates the usage of Project Lombok to reduce common boilerplate code
@@ -28,7 +26,7 @@ For Maven, add the following dependency to your `pom.xml` file:
     <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
-        <version>1.16.20</version>
+        <version>1.18.6</version>
         <scope>provided</scope>
     </dependency>
 </dependencies>

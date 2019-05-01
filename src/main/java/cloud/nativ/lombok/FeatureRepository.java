@@ -1,4 +1,4 @@
-package de.qaware.qacampus.lombok;
+package cloud.nativ.lombok;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
