@@ -1,10 +1,6 @@
-package de.qaware.qacampus.lombok;
+package cloud.nativ.lombok;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.json.bind.annotation.JsonbPropertyOrder;
 

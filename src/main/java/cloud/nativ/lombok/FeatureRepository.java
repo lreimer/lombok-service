@@ -1,4 +1,4 @@
-package de.qaware.qacampus.lombok;
+package cloud.nativ.lombok;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

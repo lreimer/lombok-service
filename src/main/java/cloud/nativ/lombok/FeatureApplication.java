@@ -1,4 +1,4 @@
-package de.qaware.qacampus.lombok;
+package cloud.nativ.lombok;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
